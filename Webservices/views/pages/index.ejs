@@ -1,0 +1,8 @@
+<%- include ../include/header %>
+
+<ul>
+<% photolist.forEach(function (photo, index) { %>
+    <a href="/detail/<%=photo._id%>"><img src="<%= photo.photo %>"/></a><br />
+<% }) %>
+</ul>
+<%- include ../include/footer %>

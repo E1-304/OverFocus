@@ -1,0 +1,299 @@
+<%- include ../include/headerForHome %>
+<div class="wrapper">
+
+    <ul id="sb-slider" class="sb-slider">
+        <li>
+            <a><img  src="images/homepageImage/1.png" alt="image1"/></a>
+            <div class="sb-description">
+                <h3>Creative Lifesaver</h3>
+            </div>
+        </li>
+        <li>
+            <a><img  src="images/homepageImage/2.png" alt="image2"/></a>
+            <div class="sb-description">
+                <h3>Honest Entertainer</h3>
+            </div>
+        </li>
+        <li>
+            <a><img  src="images/homepageImage/3.png" alt="image3"/></a>
+            <div class="sb-description">
+                <h3>Brave Astronaut</h3>
+            </div>
+        </li>
+        <li>
+            <a><img  src="images/homepageImage/4.png" alt="image4"/></a>
+            <div class="sb-description">
+                <h3>Affectionate Decision Maker</h3>
+            </div>
+        </li>
+        <li>
+            <a><img  src="images/homepageImage/5.png" alt="image5"/></a>
+            <div class="sb-description">
+                <h3>Faithful Investor</h3>
+            </div>
+        </li>
+        
+    </ul>
+
+    <div id="shadow" class="shadow"></div>
+
+    <div id="nav-arrows" class="nav-arrows">
+        <a href="#">Next</a>
+        <a href="#">Previous</a>
+    </div>
+
+</div><!-- /wrapper -->
+</article>
+</div>
+
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.validate.min.js"></script>
+<script src="artdialog/js/dialog-min.js"></script>
+<script src="artdialog/js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="javascripts/formCheck.js"></script>
+<script type="text/javascript">
+// $("#menu_img").focus(function(){
+//     console.log("focus");
+// })
+//     $("#menu_img").blur(function(){
+//         console.log("blur!!");
+//          $("#menu_img").attr('src', 'images/menu.png');
+//             $(".menu li:nth-child(1)").css({
+//             opacity:"0",
+//             zIndex:"2",
+//             transform:"rotateY(90deg)",
+//             transitionDelay: "100ms"
+//             });
+//              $(".menu li:nth-child(2)").css({
+//                 opacity:"0",
+//                 zIndex:"2",
+//                 transform:"rotateY(90deg)",
+//                 transitionDelay: "50ms"
+//             });
+//               $(".menu li:nth-child(3)").css({
+//                 opacity:"0",
+//                 zIndex:"2",
+//                 transform:"rotateY(90deg)",
+//                 transitionDelay: "0ms"
+//             });
+//               showFlag=true;
+//     });
+
+function noFunction(){
+        var d = dialog({
+            id: 'noFunction',
+            title: 'ヾ(｡｀Д´｡)别瞎点',
+            content: '尚未完成此功能',
+            zIndex:'1055'
+        });
+        d.show();
+        setTimeout(function () {
+            d.close().remove();
+        }, 2000);
+    }
+    function fogetpwd(){
+        var d = dialog({
+            id: 'api-show-dialog',
+            title: '忘记密码了？',
+            content: '请联系客服进行重置密码，祝你幸福',
+            zIndex:'1055'
+        });
+        d.show();
+        setTimeout(function () {
+            d.close().remove();
+        }, 3000);
+    }
+var showFlag = true;
+    function showMenu(){
+        if(showFlag){
+            $("#menu_a img").attr('src', 'images/menu1.png');
+            $(".menu >li:nth-child(1)").css({
+                opacity:"1",
+                zIndex:"2",
+                transform:"none",
+                transitionDelay: "0s"
+            });
+             $(".menu >li:nth-child(2)").css({
+                opacity:"1",
+                zIndex:"2",
+                transform:"none",
+                transitionDelay: "50ms"
+            });
+              $(".menu >li:nth-child(3)").css({
+                opacity:"1",
+                zIndex:"2",
+                transform:"none",
+                transitionDelay: "100ms"
+            });
+              showFlag=false;
+        }else{
+             $("#menu_a img").attr('src', 'images/menu.png');
+            $(".menu >li:nth-child(1)").css({
+            opacity:"0",
+            zIndex:"2",
+            transform:"rotateY(90deg)",
+            transitionDelay: "100ms"
+            });
+             $(".menu >li:nth-child(2)").css({
+                opacity:"0",
+                zIndex:"2",
+                transform:"rotateY(90deg)",
+                transitionDelay: "50ms"
+            });
+              $(".menu >li:nth-child(3)").css({
+                opacity:"0",
+                zIndex:"2",
+                transform:"rotateY(90deg)",
+                transitionDelay: "0ms"
+            });
+              showFlag=true;
+        }
+        
+    }
+
+    function RegistAnime(){
+        $(".sign-form").css({
+            transition: 'all 0.5s',
+            opacity: '0',
+            
+        });
+        $(".sign-form-hide").css({
+            transition: 'all 0.8s',
+            transform:'translate(0px,1070px)',
+            opacity: '1',
+            pointerEvents: 'auto',
+            
+        });
+        $(".sign-form .modal-content").css({
+            transition: 'all 1.5s',
+            transform: ' translate(0px,1500px) '
+        });
+        refrashImg();
+    }
+
+    function LoginAnime(){
+        $(".sign-form").css({
+            transition: 'all 1s',
+            opacity: '1'
+        });
+        $(".sign-form-hide").css({
+            transition: 'all 1.5s',
+            transform:'translate(0px,-1000px)',
+            opacity: '0'
+        });
+        $(".sign-form .modal-content").css({
+            transition: 'all 0.7s',
+            transform: ' translate(0px,0px) '
+        });
+        refrashImg();
+    }
+    function refrashImg(){
+        var randomNum = $(".captchaImg").data('url');
+        randomNum = randomNum+"?"+ Math.floor((Math.random()*1000000)+1);
+
+        $(".captchaImg").attr('src', randomNum);
+    }
+
+    function finish(){
+            //点击进入网站后事件触发
+            //load页面播放固定时长动画，动画借宿display：none,主页面出现
+            window.sessionStorage.setItem('Nofirst', 'true');
+            $(".rocketship").css({
+                animationName:'circle',
+                animationDuration: '3s',
+                // animationDuration: '0.6s',
+                animationTimingFunction: 'linear',
+                animationIterationCount: 'infinite'
+            });
+            setTimeout(function() {
+                $(".loadingHome").css("display","none");
+                $(".containerHome").css("display","inline");
+                $("body").css({
+                    background: "url(images/bg_2.png) no-repeat",
+                    backgroundSize: "cover"
+                });
+                window.location.reload();
+            }, 2000);
+            
+        }
+        $(document).ready(function() {
+            // $(document).bind('click', function(e){
+            //     if($(e.target)[0].id =="menu_a"||$(e.target)[0].id =="menu_img")
+            //         return;
+            //     $("#menu_a").click();
+            //     console.log("213");
+            // });
+        
+           //预加载
+           //显示div.load
+           $(".loadingHome").css("display","inline");
+            $(".containerHome").css("display","none");
+            $("body").css({
+                background: "url(images/LoadPage/bg.png) no-repeat",
+                backgroundSize: "cover"
+            });
+           if(window.sessionStorage.getItem('Nofirst')){
+            $(".loadingHome").css("display","none");
+            $(".containerHome").css("display","inline");
+            $("body").css({
+                background: "url(images/bg_2.png) no-repeat",
+                backgroundSize: "cover"
+            });
+        }
+    });
+        
+    </script>
+    <script type="text/javascript" src="javascripts/jquery.slicebox.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            var Page = (function() {
+
+                var $navArrows = $( '#nav-arrows' ).hide(),
+                $shadow = $( '#shadow' ).hide(),
+                slicebox = $( '#sb-slider' ).slicebox( {
+                    onReady : function() {
+
+                        $navArrows.show();
+                        $shadow.show();
+
+                    },
+                    orientation : 'r',
+                    cuboidsRandom : true,
+                    disperseFactor : 30
+                } ),
+
+                init = function() {
+
+                    initEvents();
+
+                },
+                initEvents = function() {
+
+                            // add navigation events
+                            $navArrows.children( ':first' ).on( 'click', function() {
+
+                                slicebox.next();
+                                return false;
+
+                            } );
+
+                            $navArrows.children( ':last' ).on( 'click', function() {
+
+                                slicebox.previous();
+                                return false;
+
+                            } );
+
+                        };
+
+                        return { init : init };
+
+                    })();
+
+                    Page.init();
+
+                });
+</script>
+</body>
+</html>

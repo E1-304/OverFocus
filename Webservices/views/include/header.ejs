@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>OverFocus</title>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="artdialog/css/ui-dialog.css">
+<link rel="stylesheet" href="stylesheets/common.css">
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery.validate.min.js"></script>
+<script src="artdialog/js/dialog-min.js"></script>
+<script src="artdialog/js/dialog-plus-min.js"></script>
+<script type="text/javascript" src="javascripts/formCheck.js"></script>
+<script type="text/javascript">
+function noFunction(){
+		var d = dialog({
+			id: 'noFunction',
+		    title: 'ヾ(｡｀Д´｡)别瞎点',
+		    content: '尚未完成此功能',
+		    zIndex:'1055'
+		});
+		d.show();
+		setTimeout(function () {
+		    d.close().remove();
+		}, 2000);
+	}
+	function fogetpwd(){
+		var d = dialog({
+			id: 'api-show-dialog',
+		    title: '忘记密码了？',
+		    content: '请联系客服进行重置密码，祝你幸福',
+		    zIndex:'1055'
+		});
+		d.show();
+		setTimeout(function () {
+		    d.close().remove();
+		}, 3000);
+	}
+var showFlag = true;
+    function showMenu(){
+        if(showFlag){
+            $(".menu li:nth-child(1)").css({
+            opacity:"1",
+            zIndex:"2",
+            transform:"none",
+            transitionDelay: "0s"
+            });
+             $(".menu li:nth-child(2)").css({
+                opacity:"1",
+                zIndex:"2",
+                transform:"none",
+                transitionDelay: "50ms"
+            });
+              $(".menu li:nth-child(3)").css({
+                opacity:"1",
+                zIndex:"2",
+                transform:"none",
+                transitionDelay: "100ms"
+            });
+              showFlag=false;
+        }else{
+            $(".menu li:nth-child(1)").css({
+            opacity:"0",
+            zIndex:"2",
+            transform:"rotateY(90deg)",
+            transitionDelay: "100ms"
+            });
+             $(".menu li:nth-child(2)").css({
+                opacity:"0",
+                zIndex:"2",
+                transform:"rotateY(90deg)",
+                transitionDelay: "50ms"
+            });
+              $(".menu li:nth-child(3)").css({
+                opacity:"0",
+                zIndex:"2",
+                transform:"rotateY(90deg)",
+                transitionDelay: "0ms"
+            });
+              showFlag=true;
+        }
+        
+    }
+
+	function RegistAnime(){
+		$(".sign-form").css({
+			transition: 'all 0.5s',
+			opacity: '0',
+			
+		});
+		$(".sign-form-hide").css({
+			transition: 'all 0.8s',
+			transform:'translate(0px,1070px)',
+			opacity: '1',
+			pointerEvents: 'auto',
+			
+		});
+		$(".sign-form .modal-content").css({
+			transition: 'all 1.5s',
+			transform: ' translate(0px,1500px) '
+		});
+		refrashImg();
+	}
+
+	function LoginAnime(){
+		$(".sign-form").css({
+			transition: 'all 1s',
+			opacity: '1'
+		});
+		$(".sign-form-hide").css({
+			transition: 'all 1.5s',
+			transform:'translate(0px,-1000px)',
+			opacity: '0'
+		});
+		$(".sign-form .modal-content").css({
+			transition: 'all 0.7s',
+			transform: ' translate(0px,0px) '
+		});
+		refrashImg();
+	}
+	function refrashImg(){
+		var randomNum = $(".captchaImg").data('url');
+		randomNum = randomNum+"?"+ Math.floor((Math.random()*1000000)+1);
+
+		$(".captchaImg").attr('src', randomNum);
+	}
+</script>
+</head>
+<body>
+
+<nav>
+	<div class="nav-top">
+		<div class="container-fluid">
+			<div class="navbar-header clearfix">
+				<a class="navbar-brand" href="/" style="margin-left: 10px;
+    margin-right: 5px;"><img src="images/Logo.png" alt="Logo" style="height:55px;width:55px;"></a>
+				<a class="navbar-brand" href="/"><img src="images/LogoName.png" alt="LogoName" style="height:40px;margin-top:5px;"></a>
+				<a class="search"><img style="float: left;margin-left: 15px;margin-top: 5px;width: 40px" src="images/search.png" alt="" onMouseOver="this.src='images/search_select.png'" onMouseOut="this.src='images/search.png'"></a>
+				<a id="homepage" href="/">HOME</a>
+				<a href="/space">ZONE</a>
+				<a onclick="noFunction()">ABOUT</a>
+			</div>
+			<p class="navbar-text navbar-right">
+				
+				<% if (user) { %>
+					<a href="/space">
+						<img src= "<%= user.headImage %>" style="width:50px;height:50px;border-radius: 25px;">
+					</a>
+					<span><a title="用户名" href="/space" style="margin-left:20px;margin-right: 20px;"><%= user.username %></a></span>
+			<% } else { %>
+				
+					<a class="navbar-link" href="#" data-toggle="modal" data-target="#signModal" >登录/注册</a>
+				
+			<% } %>
+					<a onclick="showMenu();"><img style="height:25px; margin-right: 40px;" src="images/menu.png" alt="" onMouseOver="this.src='images/menu1.png'" onMouseOut="this.src='images/menu.png'"></a>
+					<a href="/space/upload"><img style="height:25px; margin-right: 40px;" src="images/upload.png" alt="" onMouseOver="this.src='images/upload1.png'" onMouseOut="this.src='images/upload.png'"></a>
+					
+					<a onclick="noFunction()"><img style="height:25px; margin-right: 40px;" src="images/message.png" alt="" onMouseOver="this.src='images/message1.png'" onMouseOut="this.src='images/message.png'"></a>
+				</p>
+		</div>
+	</div>
+
+
+	<div>
+		<ul class="menu">
+                        <li><a href="/space">信息修改</a></li>
+						<li><a onclick="noFunction()">切换用户</a></li>
+						<li><a href="/logout">注销账号</a></li>
+      	</ul>
+	</div>
+
+
+
+	<div id="signModal" class="modal fade" role="dialog" aria-labelledby="注册" tabindex="-1">
+		<div class="modal-dialog sign-form">
+			<div class="modal-content">
+				<button class="closeBtn" type="button" data-dismiss="modal"></button>
+				<div class="modal-header" style="border:none">
+						<a href="#" style="text-align: center;font-weight:bold; border-bottom: 2px solid #828282;display: inline-block;width: 60px;margin-right:24px;margin-left:40px;margin-top:20px;">登录</a>
+						<a href="#" id="showReg" style="color:#FFF" onclick="RegistAnime()">注册</a>
+					</div>
+				<form id="signinForm" method="POST" action="/signin">
+					
+					<div class="modal-body clearfix" >
+							<lable class="inputlable" for="signinName" style="display:block;opacity: 0.6">用户名</lable>
+							<input class="textinput" id="signinName" name="username" type="text" placeholder="请输入用户名">
+							<lable class="afterIcon"></lable>
+
+							<lable class="inputlable" for="signinPwd" style="display:block;opacity: 0.6">密码</lable>
+							<input class="textinput" id="signinPwd" name="password" type="password" placeholder="请输入密码">
+							<lable class="afterIcon"></lable>
+							<lable class="inputlable" for="captcha" style="display:block;opacity: 0.6">验证码</lable>
+							<input style="width:100px" class="textinputsea" id="signinCaptcha" name="captcha" type="text" placeholder="请输入验证码">
+							<div style="display:inline-block"><img class="captchaImg" data-url="/captcha" onclick="refrashImg()" src="/captcha" style="width:100px;height:30px;cursor:pointer;" title="看不清，点击换一张" alt="captcha"></div>
+							<lable class="afterIcon"></lable>
+						</div>
+						<button id="signinBtn" type="submit">确认登录</button>
+						<div id="reSignin">
+							<span onclick="fogetpwd()">居然忘记密码了？</span>
+						</div>
+				</form>
+			</div>
+		</div>
+
+
+		<div class="modal-dialog sign-form-hide">
+			<div class="modal-content">
+				<button class="closeBtn" type="button" data-dismiss="modal"></button>
+				<div class="modal-header" style="border:none">
+						<a id="showLogin" href="#" onclick="LoginAnime()">登录</a>
+						<a href="#" style="text-align: center;font-weight:bold; border-bottom: 2px solid #bdbdbd;display: inline-block;width: 60px; margin-left:24px;" >注册</a>
+				</div>
+				<label class="labelradio" style="margin-left:30px;"><input type="radio" name="signType" value="0" checked>我就随便看看</label>
+				<label class="labelradio" style="margin-left:20px;"><input type="radio" name="signType" value="1">我要成为摄影师</label>
+				<label class="labelradio" style="font-size: 10px;margin-left:20px;">（带*必填，申请摄影师请将剩余项补齐）</label>
+				<form id="signupForm" method="POST" action="/signup">
+					<div class="modal-body clearfix">
+							<lable class="inputlable" for="signupName" style="display:block;opacity: 0.6">用户名</lable>
+							<input class="textinput" id="signupName" name="username" type="text" placeholder="请输入用户名">
+							<lable>*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="signupName-error" class="error" for="signupName"></label>
+
+							<lable class="inputlable" for="signupPwd" style="display:block;opacity: 0.6">密码</lable>
+							<input class="textinput" id="signupPwd" name="password" type="password" placeholder="请输入密码">
+							<lable>*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="signupPwd-error" class="error" for="signupPwd"></label>
+
+							<lable class="inputlable" for="signupPwd" style="display:block;opacity: 0.6">密码确认</lable>
+							<input class="textinput" id="rePwd" name="repassword" type="password" placeholder="确认密码">
+							<lable>*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="rePwd-error" class="error" for="rePwd"></label>
+							
+
+							<lable class="inputlable" for="signupPwd" style="display:block;opacity: 0.6">性别</lable>
+							<label><input style="margin-left: 40px;" name="sex" type="radio" value="man">
+									<img src="images/man.png"width="25px"height="25px"alt="男"></label>
+							<label><input type="radio"name="sex" value="woman">
+									<img src="images/women.png"width="25px"height="25px"alt="女"></label>
+							<lable>*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="sex-error" class="error" for="sex"></label>
+							
+							<lable class="inputlable" for="tel" style="display:block;opacity: 0.6">手机号</lable>
+							<input class="textinputsea" id="tel" name="tel" type="text" placeholder="请输入手机号">
+							<lable class="canChoose">*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="tel-error" class="error" for="tel"></label>
+
+							<lable class="inputlable" for="email" style="display:block;opacity: 0.6">邮箱</lable>
+							<input class="textinputsea" id="email" name="email" type="text" placeholder="请输入邮箱">
+							<lable class="canChoose">*</lable>
+							<lable class="afterIcon"></lable>
+							<label id="email-error" class="error" for="email"></label>
+
+							<lable class="inputlable" for="captcha" style="display:block;opacity: 0.6">验证码</lable>
+							<input style="width:100px" class="textinputsea" id="signupcaptcha" name="captcha" type="text" placeholder="请输入验证码">
+							<div style="display:inline-block"><img class="captchaImg" data-url="/captcha" onclick="refrashImg()" src="/captcha" style="width:100px;height:30px;cursor:pointer;" title="看不清，点击换一张" alt="captcha"></div>
+							<lable>*</lable>
+							<lable id="CaptchaAfterIcon" class="afterIcon"></lable>
+							<label id="signupcaptcha-error" class="error" for="signupcaptcha"></label>
+					</div>
+					<button id="signupBtn" type="submit">注册</button>
+				<div id="reSignin">
+					<span onclick="LoginAnime()">已有账号，点此登录</span>
+				</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</nav>
+
+
+<article>

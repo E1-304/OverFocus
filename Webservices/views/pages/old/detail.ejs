@@ -1,0 +1,8 @@
+<%- include ../include/header %>
+
+<ul>
+<% photolist.forEach(function (photo, index) { %>
+	<img src="<%= photo.path %>"/></a><br />
+<% }) %>
+</ul>
+<%- include ../include/footer %>

@@ -1,0 +1,179 @@
+<%- include ../include/header %>
+<h2 style="text-align:center;margin-left: 110px;">信息修改</h2>
+<form method="post" action="/space/changeInfo" style="text-align:center" id="changeInfoForm">
+  用户名(花钱才给你修改)：  <input type="text" name="username" value="<%= user.username %>"/><br />
+  上传头像：  
+  <img id="user_photo" src= "<%= user.headImage %>"  class="img-circle" style="width: 100px;height: 100px;"><br/>
+  *性别：  
+  <% if (user.sex=="man") { %>
+    <label><input style="margin-left: 40px;" name="sex" type="radio" value="man" checked>
+      <img src="images/man.png"width="25px"height="25px"alt="男"></label>
+      <label><input type="radio"name="sex" value="woman">
+        <img src="images/women.png"width="25px"height="25px"alt="女"></label><br>
+        <% } else { %>
+          <label><input style="margin-left: 40px;" name="sex" type="radio" value="man" >
+            <img src="images/man.png"width="25px"height="25px"alt="男"></label>
+            <label><input type="radio"name="sex" value="woman" checked>
+              <img src="images/women.png"width="25px"height="25px"alt="女"></label><br>
+              <% } %>
+
+              *邮箱：    <input type="text" name="email" value="<%= user.email %>"/><br />
+              *电话：    <input type="text" name="tel" value="<%= user.tel %>"/><br />
+              <button type="button" class="btn btn-default" id="changeInfoBtn"/>修改</button><!--YES-->
+              <!-- <button class="btn btn-default" id="changeInfoBtn">修改</button> NO-->
+             <!--  <input type="button" class="btn btn-default" id="changeInfoBtn" value="修改"> YES-->
+            <!--  <input type="submit" class="btn btn-default" id="changeInfoBtn" value="修改"> NO--> 
+            </form>
+
+
+            <h2 style="text-align:center">修改密码</h2>
+            <form method="post" action="/space/changePwd" style="text-align:center" id="changePwd">
+              原密码：  <input type="password" name="oldpwd"/><br />
+              新密码：  <input type="password" name="newpwd"/><br />
+              确认新密码：  <input type="password" name="repwd"/><br />
+               <button type="button" class="btn btn-default" id="changePwdBtn"/>修改</button>
+            </form>
+
+          </article>
+          <script>
+            $(function() {
+              $("#user_photo").click(function(){
+                var d = dialog({
+                  id: 'test',
+                  url     : '/space/uploadHeadImg',
+                  title   : '选择图片',
+                  onclose : function(){
+                    if (this.returnValue) {
+                      if(this.returnValue=="success"){
+                        var d = dialog({
+                          id: 'uploadHeadImg-load',
+                          title: '上传头像成功！',
+                          content: '1秒后刷新页面',
+                          zIndex: '1055'
+                        });
+                        d.show();
+                        setTimeout(function() {
+                          d.close().remove();
+                          location.reload(true);
+                        }, 1000);
+                      }
+                      if(this.returnValue=="error"){
+                        var d2 = dialog({
+                          id: 'uploadHeadImg-error',
+                          title: '上传头像失败',
+                          content: '请重新上传或联系客服',
+                          zIndex: '1055'
+                        });
+                        d2.show();
+                        setTimeout(function() {
+                          d.close().remove();
+                          location.reload(true);
+                        }, 1000);
+                      }
+                    }
+                  }
+                });
+                    d.width(600).height(600).showModal();
+                })
+              $('#changeInfoBtn').click(function() {
+                $.ajax({
+                 url:"/space/changeInfo",
+                 data:$("#changeInfoForm").serialize(),
+                 type:"post"
+               })
+                .done(function(result){
+                  if(result.success === 1){
+                    var d = dialog({
+                      id: 'changeInfo-success',
+                      title: '修改信息成功！',
+                      content: '1秒后刷新页面',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.reload(true);
+                    }, 1000);
+                  }
+                  if(result.success === 0){
+                    var d = dialog({
+                      id: 'changeInfo-error',
+                      title: '修改信息失败！',
+                      content: '1秒后刷新页面',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.reload(true);
+                    }, 1000);
+                  }
+                })
+              })
+
+              $('#changePwdBtn').click(function() {
+                $.ajax({
+                 url:"/space/changePwd",
+                 data:$("#changePwd").serialize(),
+                 type:"post"
+               })
+                .done(function(result){
+                  if(result.success === 1){
+                    var d = dialog({
+                      id: 'changeInfo-success',
+                      title: '修改密码成功！',
+                      content: '1秒之后跳转首页，重新登录',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.href="/";
+                    }, 1000);
+                  }
+                  if(result.success === 0){
+                    var d = dialog({
+                      id: 'changeInfo-error',
+                      title: '用户不存在',
+                      content: '请重新修改！',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.reload(true);
+                    }, 1000);
+                  }
+                  if(result.success === 3){
+                    var d = dialog({
+                      id: 'changeInfo-error',
+                      title: '两次密码输入不匹配',
+                      content: '请重新修改！',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.reload(true);
+                    }, 1000);
+                  }
+                  if(result.success === 2){
+                    var d = dialog({
+                      id: 'changeInfo-error',
+                      title: '账户名和密码不匹配',
+                      content: '请重新修改！',
+                      zIndex: '1055'
+                    });
+                    d.show();
+                    setTimeout(function() {
+                      d.close().remove();
+                      location.reload(true);
+                    }, 1000);
+                  }
+                })
+              })
+          })
+
+</script>
+</body>
+</html>

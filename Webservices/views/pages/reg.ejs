@@ -1,0 +1,17 @@
+<%- include ../include/header %>
+<form method="post" action="/signup">
+  用户名：  <input type="text" name="username"/><br />
+  密码：    <input type="password" name="password"/><br />
+  确认密码：<input type="password" name="repassword"/><br />
+  验证码: <input type="text" name="captcha"/>
+          <img src="/captcha"/><br />
+  *真实姓名：    <input type="text" name="realname"/><br />
+  *性别：    <input type="text" name="sex"/><br />
+  *邮箱：    <input type="text" name="email"/><br />
+  *电话：    <input type="text" name="tel"/><br />
+  *QQ：    <input type="text" name="qq"/><br />
+  *微信：    <input type="text" name="wechat"/><br />
+
+            <input type="submit" value="注册"/>
+</form>
+<%- include ../include/footer %>

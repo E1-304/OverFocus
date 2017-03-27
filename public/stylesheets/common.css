@@ -1,0 +1,501 @@
+/* ----------------Reset Css--------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video, input  {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: PingFang-SC-Thin;
+    src: url('../../font/PingFang-SC-Thin.ttf');
+}
+
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+    -webkit-text-size-adjust: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+a{
+    text-decoration: none;
+}
+body {
+    font-family: "PingFang-SC-Thin";
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+::-webkit-input-placeholder {
+color: white; 
+opacity: 0.5;
+} 
+/* ------------ */
+
+.menu{
+    position: absolute;
+    right: 120px;
+    z-index:2;
+    text-align: center;
+    -webkit-perspective: 400px;
+    -moz-perspective: 400px;
+    -ms-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+}
+.menu li {
+   background-color: #3c404b;
+
+    border-bottom: 2px solid #181818;
+    border-top: 2px solid #303030;
+    min-width: 160px;
+
+    opacity: 0;
+
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+
+    -webkit-transition: opacity .4s, -webkit-transform .5s;
+    -moz-transition: opacity .4s, -moz-transform .5s;
+    -ms-transition: opacity .4s, -ms-transform .5s;
+    -o-transition: opacity .4s, -o-transform .5s;
+    transition: opacity .4s, transform .5s;
+}
+
+.menu a {
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    color: #d5d5d5;
+    display: block;
+    font-family: 'Lucida Console';
+    font-size: 18px;
+    line-height: 54px;
+    padding: 0 25px;
+    text-decoration: none;
+}
+
+/* onhover styles */
+.menu li:hover {
+    background-color: #262729;
+    border-bottom: 2px solid #222222;
+    border-top: 2px solid #1B1B1B;
+}
+.menu li:hover > a {
+  border-bottom: 3px solid #454545;
+    border-radius: 0;
+    color: #91b7ef;
+}
+
+
+
+.menu2{
+    position: absolute;
+    right: 162px;
+    z-index:2;
+    text-align: center;
+    -webkit-perspective: 400px;
+    -moz-perspective: 400px;
+    -ms-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+}
+
+
+.menu li:nth-child(1):hover .menu2 li{
+    opacity:1;
+    z-index:3;
+    transform:none;
+    transition-delay: 0s;
+}
+.menu li:nth-child(1):hover .menu2 li:nth-child(1){
+    
+    transition-delay: 0s;
+}
+.menu li:nth-child(1):hover .menu2 li:nth-child(2){
+   
+    transition-delay: 50ms;
+}
+.menu li:nth-child(1):hover .menu2 li:nth-child(3){
+   
+    transition-delay: 100ms;
+}
+
+
+
+
+
+.loadingHome{
+    display: none;
+}
+
+.containerHome{
+    display: inline;
+}
+
+.canChoose{
+    display: none;
+}
+.closeBtn{
+    cursor: pointer;
+    float: right;
+    margin-right: 4px;
+    margin-top: 7px;
+    height: 20px;
+    width: 20px;
+    border: 0;
+    outline: none;
+    background: url(../images/close.png) no-repeat;
+}
+#signModal{
+    overflow: hidden;
+}
+
+#showReg,#showLogin{
+    opacity: 0.4;
+}
+#showReg:hover,#showLogin:hover{
+    opacity: 0.9;
+}
+
+.nav-top a:hover, .nav-wrap ul li a {
+    text-decoration: none
+}
+.nav-top {
+    background-color: #3c404b;
+    height: 50px;
+}
+.nav-top .navbar-header a {
+    margin-right: 20px
+}
+.nav-top .navbar-text {
+    margin-top: 0
+}
+.nav-top a {
+    color: #d5d5d5;
+    font: 12px Helvetica, Arial, sans-serif;
+    padding: 0;
+    line-height: 50px;
+    float: left;
+    cursor: pointer;
+}
+.nav-top a:hover {
+    color: #fff
+}
+.nav-top span {
+    color: #d5d5d5;
+    font: 12px Helvetica, Arial, sans-serif;
+    padding: 0;
+    line-height: 28px
+}
+.navbar-right {
+    margin: 0
+}
+.navbar-menu{
+
+}
+
+
+
+
+
+
+.sign-form {
+    width: 320px;
+    opacity: 1;
+    
+}
+#signinForm{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.sign-form .modal-content {
+    /* background-color: #5a5a5a; */
+    background: url(../images/Login.png);
+    color: #aaa;
+    width: 320px;
+    height: 414px;
+    transform:translate(0px,0px);
+}
+
+.modal-content a{
+   text-decoration: none;
+   color:#FFF
+}
+
+.sign-form .modal-header {
+    font-size: 18px;
+    color: #fff
+}
+.sign-form .modal-content .labelradio{
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.sign-form .modal-body{
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size: 12px;
+    color: white;
+    padding: 0px;
+}
+
+.inputlable{
+    margin-bottom: 5px;
+}
+
+.textinput{
+    width: 300px;
+    height: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid #7C8AAB;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 20px;
+}
+.sign-form .textinput{
+    width: 200px;
+}
+.textinput:focus,.textinput:hover{
+    border: 1px solid white;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.15);
+}
+
+.textinputsea{
+    width: 300px;
+    height: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    border: 1px solid #7C8AAB;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.textinputsea:focus,.textinputsea:hover{
+    border: 1px solid white;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.35);
+}
+
+.sign-form .modal-body .afterIcon{
+   /*  display: inline-block; */
+    display: none;
+    width: 25px;
+    height: 25px;
+    background: url(../../images/no.png) no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+.sign-form #signinBtn{
+    background-color: #91969F;
+    width: 250px;
+    height: 35px;
+    border-radius: 25px;
+    display: block;
+    border: none;
+    color: white;
+    margin-top: 35px;
+    opacity: 0.8;
+    outline: none;
+}
+.sign-form #signinBtn:hover{
+    opacity: 1;
+}
+.sign-form #reSignin{
+    text-align: center;
+    font-size: 10px;
+    margin-top: 17px;
+    margin-left: -35px;
+    color: white;
+}
+
+#reSignin span{
+    opacity: 0.5;
+    cursor: pointer;
+}
+#reSignin span:hover {
+    opacity: 1
+}
+
+
+
+.sign-form-hide {
+    width: 501px;
+    opacity: 0;
+    top: -1500px;
+    pointer-events: none;
+}
+
+.sign-form-hide .modal-content {
+    /* background-color: #5a5a5a; */
+    background: url(../images/Reg.png);
+    color: #aaa;
+    width: 501px;
+    height: 650px;
+    position: relative;
+}
+.sign-form-hide .modal-header {
+    font-size: 18px;
+    color: #fff;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.sign-form-hide .modal-content .labelradio{
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.sign-form-hide .modal-body{
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size: 12px;
+    color: white;
+    padding: 0px;
+}
+
+.sign-form-hide .modal-body .afterIcon{
+    display: none;
+    width: 25px;
+    height: 25px;
+    background: url(../../images/no.png) no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+.sign-form-hide #signupBtn{
+    background-color: #91969F;
+    width: 400px;
+    height: 35px;
+    border-radius: 25px;
+    display: block;
+    border: none;
+    margin: 0 auto;
+    color: white;
+    margin-top: 35px;
+    opacity: 0.8;
+    outline: none;
+}
+.sign-form-hide #signupBtn:hover{
+    opacity: 1;
+}
+
+.sign-form-hide #reSignin{
+    text-align: center;
+    font-size: 10px;
+    margin-top: 20px;
+    color: white;
+}
+
+#reSignin span{
+    opacity: 0.5;
+    cursor: pointer;
+}
+#reSignin span:hover {
+    opacity: 1
+}
+@media screen and (max-width:992px) {
+    .nav-wrap {
+        width: 100%
+    }
+}
+@media screen and (max-width:767px) {
+    .nav-logo, .nav-wrap ul {
+        display: none
+    }
+    .nav {
+        margin-bottom: 0
+    }
+    .nav-wrap, .nav-wrap .nav-search input {
+        width: 100%
+    }
+    .container-fluid .navbar-header {
+        float: left;
+        margin-left: 0
+    }
+    .navbar-right {
+        float: right
+    }
+    .modal-dialog {
+        margin: 20px auto
+    }
+    .modal-body {
+        padding-bottom: 0
+    }
+    .sign-form {
+        width: 300px
+    }
+    .sign-form .modal-header {
+        font-size: 15px;
+        padding: 10px
+    }
+    .sign-form .form-group {
+        padding-top: 0
+    }
+    .sign-form label {
+        width: 18%
+    }
+    .sign-form label.error {
+        top: -23px;
+        left: 20%;
+        width: 70%
+    }
+    .sign-form .form-captcha {
+        width: 30%
+    }
+    .sign-form .captcha-show {
+        width: 68px;
+        font-size: 15px
+    }
+    .sign-form .form-clear {
+        top: 11px;
+        right: 14%
+    }
+    .sign-form .form-captcha-clear {
+        right: 49%
+    }
+    .sign-form .captcha-repeat {
+        font-size: 10px;
+        margin-top: 7px
+    }
+    
+}
